@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { clear } from 'console'
+import { textChangeRangeIsUnchanged } from 'typescript'
 import { ref } from 'vue'
 
 interface Item {
@@ -15,7 +17,12 @@ const newItemPrice = ref(0)
 
 const addItem = () => {
   items.value.push({ name: newItemName.value, price: newItemPrice.value })
+const clear = () => {
+    ver tect = document.getElementById("form1")
+    textChangeRangeIsUnchanged.vulue = "";
 }
+}
+
 </script>
 
 <template>
@@ -36,7 +43,7 @@ const addItem = () => {
         価格
         <input v-model="newItemPrice" type="number" />
       </label>
-      <button @click="addItem">追加</button>
+      <button @click="addItem" :onkeydown="clear()">追加</button>
     </div>
   </div>
 </template>
