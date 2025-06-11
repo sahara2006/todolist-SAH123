@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { isTemplateExpression } from 'typescript'
 import { ref } from 'vue'
 
 interface Item {
@@ -13,8 +12,9 @@ const items = ref<Item[]>([
 ])
 const newItemName = ref('')
 const newItemPrice = ref(0)
-const add Item = () => {
-    items.value.push({ name:newItemName.value, price:newItemPrice.value })
+
+const addItem = () => {
+  items.value.push({ name: newItemName.value, price: newItemPrice.value })
 }
 </script>
 
