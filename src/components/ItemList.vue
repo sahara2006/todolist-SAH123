@@ -16,11 +16,10 @@ const newItemName = ref('')
 const newItemPrice = ref(0)
 
 const addItem = () => {
+if (newItemName.value === '' || newItemPrice.value === 0) return // buttonタグでdesabledを指定してもよい
   items.value.push({ name: newItemName.value, price: newItemPrice.value })
-const clear = () => {
-    ver tect = document.getElementById("form1")
-    textChangeRangeIsUnchanged.vulue = "";
-}
+  newItemName.value = ''
+  newItemPrice.value = 0
 }
 
 </script>
