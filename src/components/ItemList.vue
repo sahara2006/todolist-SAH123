@@ -1,36 +1,31 @@
 <script setup lang="ts">
-import { clear } from 'console'
-import { textChangeRangeIsUnchanged } from 'typescript'
 import { ref } from 'vue'
-
 interface Item {
   name: string
   price: number
 }
-
 const items = ref<Item[]>([
   { name: 'たまご', price: 100 },
   { name: 'りんご', price: 160 }
 ])
 const newItemName = ref('')
 const newItemPrice = ref(0)
-
 const addItem = () => {
 if (newItemName.value === '' || newItemPrice.value === 0) return // buttonタグでdesabledを指定してもよい
   items.value.push({ name: newItemName.value, price: newItemPrice.value })
   newItemName.value = ''
   newItemPrice.value = 0
 }
-
 </script>
 
 <template>
   <div>
-    <div>ItemList</div>
+    <h2>ItemList</h2>
     <ul>
-      <li v-for="item in items" :key="item.name">
+      <li v-for="item in items" :key="item.name" :class="{ over500: item.price >= 500 }">
         <div>名前: {{ item.name }}</div>
         <div>{{ item.price }} 円</div>
+        <div v-if="item.price >= 10000">高額商品</div>
       </li>
     </ul>
     <div>
@@ -42,9 +37,13 @@ if (newItemName.value === '' || newItemPrice.value === 0) return // buttonタグ
         価格
         <input v-model="newItemPrice" type="number" />
       </label>
-      <button @click="addItem" :onkeydown="clear()">追加</button>
+      <button @click="addItem">add</button>
     </div>
   </div>
 </template>
 
-<style></style>
+<style>
+.over500 {
+  color: red;
+}
+</style>
