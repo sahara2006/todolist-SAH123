@@ -11,6 +11,7 @@ defineProps<{
   <div>
     <h1>{{ msg }}</h1>
     <ClickCounter />
+    <ItemList />
   </div>
 </template>
 
