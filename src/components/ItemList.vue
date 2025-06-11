@@ -17,8 +17,7 @@ const items = ref<Item[]>([
     <div>ItemList</div>
     <ul>
       <li v-for="item in items" :key="item.name">
-        <div>名前: {{ item.name }}</div>
-        <div>{{ item.price }} 円</div>
+        <div>名前: {{ item.name }}\n{{ item.price }} 円</div>
       </li>
     </ul>
   </div>
